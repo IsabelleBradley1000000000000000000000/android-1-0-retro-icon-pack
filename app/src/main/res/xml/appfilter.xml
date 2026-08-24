@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appmap>
+    <!-- Spotify -->
+    <item
+        component="ComponentInfo{com.spotify.music/com.spotify.music.MainActivity}"
+        drawable="icspotify" />
+
+    <!-- Instagram -->
+    <item
+        component="ComponentInfo{com.instagram.android/com.instagram.MainTabActivity}"
+        drawable="icinstagram" />
+
+    <!-- Discord -->
+    <item
+        component="ComponentInfo{com.discord/com.discord.MainActivity}"
+        drawable="icdiscord" />
+
+    <!-- TikTok -->
+    <item
+        component="ComponentInfo{com.zhiliaoapp.musically/com.zhiliaoapp.musically.MainActivity}"
+        drawable="ictiktok" />
+</appmap>
