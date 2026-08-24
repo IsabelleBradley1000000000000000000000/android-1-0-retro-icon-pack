@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<drawables>
+    <item
+        drawable="icspotify"
+        request-app="com.spotify.music" />
+    <item
+        drawable="icinstagram"
+        request-app="com.instagram.android" />
+    <item
+        drawable="icdiscord"
+        request-app="com.discord" />
+    <item
+        drawable="ictiktok"
+        request-app="com.zhiliaoapp.musically" />
+</drawables>
