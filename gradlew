@@ -68,11 +68,11 @@ nix=false
 cygwin=false
 msys=false
 freebsd=false
-case "$( uname )" in                #(
-  Darwin* )         darwin=true  ;; #(
-  Linux* )          nix=true     ;; #(
-  CYGWIN* )         cygwin=true  ;; #(
-  MSYS* )           msys=true    ;; #(
+case "$( uname )" in
+  Darwin* )         darwin=true  ;;
+  Linux* )          nix=true     ;;
+  CYGWIN* )         cygwin=true  ;;
+  MSYS* )           msys=true    ;;
   FreeBSD* )        freebsd=true ;;
 esac
 
@@ -95,7 +95,7 @@ for arg in "$@" ; do
     CHECK=$( echo "$arg" | egrep -c "$CONVERT_VAR_PATTERN" ) 2>/dev/null
     CHECK2=$( echo "$arg" | egrep -c "^-" ) 2>/dev/null
     ( if [ $CHECK -ne 0 ] && [ $CHECK2 -eq 0 ] ; then
-        arg=$( echo "$arg" | sed "s/^\(-D[^.]*\)[.\\-_]\(.*\)\/\(..*\)$/\1=\2:\3/g" )
+        arg=$( echo "$arg" | sed "s/^\\(-D[^.]*\\)[.\\\\-_]\\(.*\\)\\\/\\(..*\\)$/\\1=\\2:\\3/g" )
     fi
     echo "$arg"
     done ) |
