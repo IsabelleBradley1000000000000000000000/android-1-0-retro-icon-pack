@@ -17,18 +17,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Icon Pack Provider for Samsung Theme System -->
-        <provider
-            android:name="android.content.ContentProvider"
-            android:authorities="com.isabel.android1retro.iconpack"
-            android:exported="true" />
-
-        <!-- Intent filter for icon pack detection -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.launcher.action.INSTALL_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -39,6 +27,12 @@
                 <data android:scheme="market" />
             </intent-filter>
         </activity>
+
+        <!-- Icon Pack Provider for Samsung Theme System -->
+        <provider
+            android:name="android.content.ContentProvider"
+            android:authorities="com.isabel.android1retro.iconpack"
+            android:exported="true" />
 
         <!-- Icon pack metadata service -->
         <service
