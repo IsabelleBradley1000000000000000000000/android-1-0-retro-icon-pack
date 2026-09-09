@@ -1,49 +1,72 @@
 package com.isabel.android1retro;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.util.Log;
+import android.graphics.Color;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d("MainActivity", "onCreate called");
+        
         try {
-            super.onCreate(savedInstanceState);
-            
-            // Create a simple UI programmatically to avoid layout inflation issues
-            LinearLayout layout = new LinearLayout(this);
-            layout.setOrientation(LinearLayout.VERTICAL);
-            layout.setLayoutParams(new LinearLayout.LayoutParams(
+            // Create root layout
+            LinearLayout root = new LinearLayout(this);
+            root.setOrientation(LinearLayout.VERTICAL);
+            root.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT
             ));
-            layout.setBackgroundColor(0xFFFFFFFF); // White background
+            root.setBackgroundColor(Color.WHITE);
+            root.setGravity(android.view.Gravity.CENTER);
             
-            // Title
+            // Create title
             TextView title = new TextView(this);
-            title.setText("Android 1.0 Retro Pack");
-            title.setTextSize(24);
-            title.setTextColor(0xFF000000); // Black text
-            title.setPadding(16, 16, 16, 16);
+            title.setText("Android 1.0 Retro");
+            title.setTextSize(32);
+            title.setTextColor(Color.BLACK);
+            title.setGravity(android.view.Gravity.CENTER);
+            LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            titleParams.setMargins(0, 0, 0, 16);
+            title.setLayoutParams(titleParams);
             
-            // Subtitle
+            // Create subtitle
             TextView subtitle = new TextView(this);
-            subtitle.setText("4 Icons Included");
-            subtitle.setTextSize(16);
-            subtitle.setTextColor(0xFF666666); // Gray text
-            subtitle.setPadding(16, 0, 16, 16);
+            subtitle.setText("Icon Pack");
+            subtitle.setTextSize(18);
+            subtitle.setTextColor(Color.GRAY);
+            subtitle.setGravity(android.view.Gravity.CENTER);
+            LinearLayout.LayoutParams subtitleParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            subtitle.setLayoutParams(subtitleParams);
             
-            layout.addView(title);
-            layout.addView(subtitle);
+            root.addView(title);
+            root.addView(subtitle);
             
-            setContentView(layout);
+            setContentView(root);
+            Log.d("MainActivity", "UI created successfully");
             
         } catch (Exception e) {
-            Log.e("MainActivity", "Error in onCreate", e);
-            e.printStackTrace();
+            Log.e("MainActivity", "Exception in onCreate: " + e.getMessage(), e);
+            
+            // Fallback: Create a simple text view if everything fails
+            TextView errorView = new TextView(this);
+            errorView.setText("Icon Pack Loaded");
+            errorView.setTextSize(24);
+            errorView.setTextColor(Color.BLACK);
+            errorView.setBackgroundColor(Color.WHITE);
+            setContentView(errorView);
         }
     }
 }
